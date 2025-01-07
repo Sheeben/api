@@ -3,14 +3,16 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/dbname');
+mongoose.connect('mongodb://localhost:27017/dbname', {
+  useNewUrlParser: true, useUnifiedTopology: true, 
+});
 
 // Schema for traditional dress
 const traditionalDressSchema = new mongoose.Schema({
