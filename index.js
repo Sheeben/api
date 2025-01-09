@@ -10,9 +10,11 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/dbname', {
-  useNewUrlParser: true, useUnifiedTopology: true, 
+mongoose.connect(process.env.DB_CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+
 
 // Schema for traditional dress
 const traditionalDressSchema = new mongoose.Schema({
