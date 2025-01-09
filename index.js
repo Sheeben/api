@@ -9,9 +9,12 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
+const mongoose = require('mongoose');
+
+// MongoDB connection
 mongoose.connect(process.env.DB_CONNECTION_STRING, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useNewUrlParser: true, // These options are deprecated and can be removed
+  useUnifiedTopology: true // These options are deprecated and can be removed
 });
 
 
